@@ -4,6 +4,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const UserController = require('./controllers/user.controller');
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 mongoose.connect(
   'mongodb://root:76cSK39IdZDt7gPX@cluster0-shard-00-00-hanrg.mongodb.net:27017,' +
   'cluster0-shard-00-01-hanrg.mongodb.net:27017,' +
@@ -13,10 +16,10 @@ mongoose.connect(
 
 app.use('/users', UserController);
 
-app.use(express.static(path.join(__dirname + 'client/build')));
-
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + './client/build/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
