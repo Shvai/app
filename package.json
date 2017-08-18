@@ -9,7 +9,7 @@
     "mongoose": "^4.11.7"
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
+    "start": "nodemon index.js"
+    //"heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
