@@ -10,6 +10,6 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "heroku-postbuild": "yarn start && cd client && yarn --production=false && yarn run build"
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
