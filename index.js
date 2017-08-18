@@ -13,10 +13,6 @@ mongoose.connect(
 
 app.use('/users', UserController);
 
-app.use(function(req, res) {
-  res.status(404).send({url: req.originalUrl + ' not found'})
-});
-
 app.use(express.static(path.join('../client/build')));
 
 app.get('*', (req, res) => {
