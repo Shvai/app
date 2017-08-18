@@ -3,7 +3,6 @@ import './App.css';
 
 class App extends Component {
   state = {users: []}
-
   componentDidMount() {
     fetch('/users')
       .then(res => res.json())

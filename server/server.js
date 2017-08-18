@@ -17,11 +17,13 @@ app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
+/*
 app.use(express.static(path.join('../client/build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join('../client/build/index.html'));
 });
+*/
 
 const port = process.env.PORT || 5000;
 const server = app.listen(port, function() {
