@@ -3,14 +3,14 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const User = require('../models/User');
 
-router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.urlencoded({extended: true}));
 // CREATES A NEW USER
 router.post('/', function (req, res) {
   User.create({
-      firstname : req.body.firstname,
-      lastname : req.body.lastname,
-      email : req.body.email,
-      password : req.body.password
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: req.body.password
     },
     function (err, user) {
       if (err) return res.status(500).send("There was a problem adding the information to the database.");
@@ -39,7 +39,7 @@ router.get('/:id', function (req, res) {
 router.delete('/:id', function (req, res) {
   User.findByIdAndRemove(req.params.id, function (err, user) {
     if (err) return res.status(500).send("There was a problem deleting the user.");
-    res.status(200).send("User "+ user.name +" was deleted.");
+    res.status(200).send("User " + user.name + " was deleted.");
   });
 });
 

@@ -13,20 +13,18 @@ mongoose.connect(
 
 app.use('/users', UserController);
 
-app.use(function(req, res) {
+app.use(function (req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
-/*
 app.use(express.static(path.join('../client/build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join('../client/build/index.html'));
 });
-*/
 
 const port = process.env.PORT || 5000;
-const server = app.listen(port, function() {
+const server = app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });
 
