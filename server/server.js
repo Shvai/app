@@ -11,16 +11,15 @@ mongoose.connect(
   'ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
 );
 
-app.use('/users', UserController);
-
-app.use(function (req, res) {
-  res.status(404).send({url: req.originalUrl + ' not found'})
-});
-
 app.use(express.static(path.join('../client/build')));
+app.use('/users', UserController);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join('../client/build/index.html'));
+});
+
+app.use(function (req, res) {
+  res.status(404).send({url: req.originalUrl + ' not found'})
 });
 
 const port = process.env.PORT || 5000;
