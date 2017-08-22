@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const UserController = require('./server/controllers/user.controller');
+const UserController = require('./controllers/user.controller');
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
