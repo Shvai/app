@@ -12,7 +12,7 @@ mongoose.connect(
 );
 
 // Serve static files from the React app
-app.use(express.static(path.join('../client/build')));
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 app.use('/users', UserController);
 
