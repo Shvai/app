@@ -5,3 +5,5 @@ mongoose.connect(
   'cluster0-shard-00-02-hanrg.mongodb.net:27017/db?' +
   'ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
 );
+
+module.exports = mongoose
