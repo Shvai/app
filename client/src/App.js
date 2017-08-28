@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
+
 import TopNav from './components/TopNav/TopNav';
+import Table from './components/Table/Table';
 
 class App extends Component {
+<<<<<<< HEAD
   state = {users: []}
 
   componentDidMount() {
@@ -36,6 +39,16 @@ class App extends Component {
       </div>
     );
   }
+=======
+    render() {
+        return (
+            <div className="App">
+                <TopNav/>
+                <Table/>
+            </div>
+        );
+    }
+>>>>>>> 78951b3a88b860b26693a03e2d43e01140687b40
 }
 
 export default App;
