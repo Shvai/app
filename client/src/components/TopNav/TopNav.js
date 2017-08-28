@@ -9,6 +9,7 @@ class TopNav extends Component {
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
+        <a style={{float:'right'}} href="#login">Login</a>
       </div>
     );
   }
