@@ -2,51 +2,67 @@ import React, {Component} from 'react';
 import './Table.css';
 
 class Table extends Component {
-  state = {users: []}
+  constructor() {
+    super();
+    this.state = {
+      users: [],
+      editVisible: false
+    };
+    this.onClick = this.onClick.bind(this)
+  }
 
   componentDidMount() {
     fetch('/users')
       .then(res => res.json())
       .then(users => this.setState({users}));
   }
-/*
-  let switching = true;
-  let i;
-  let shouldswitch;
-  while (switching) {
-    for (i = 0; i < (this.state.users.length - 1); i++) {
-      shouldswitch = false;
-      if (this.state.users[i].firstname > this.state.users[i+1].firstname) {
-        shouldswitch = true;
-        break;
-      }
-    }
-    if (shouldswitch) {
-      let foo = this.state.users[i];
-      this.state.users[i] = this.state.users[i+1];
-      this.state.users[i+1] = foo;
-      switching = true;
-    }
-*/
+
+  onClick() {
+    this.setState({editVisible: !this.state.editVisible});
+  }
+
   render() {
     return (
       <div className="Table">
-        <div>
-          <h1>User List</h1>
-          <table className="myTable">
-            <tr className="header">
-              <th style={{width: '33.333333%'}}>Firstname</th>
-              <th style={{width: '33.333333%'}}>Lastname</th>
-              <th style={{width: '33.333333%'}}>Email</th>
-            </tr>
-            {this.state.users.map(User =>
-              <tr key={User.id}>
-                <td>{User.firstname}</td>
-                <td>{User.lastname}</td>
-                <td>{User.email}</td>
-              </tr>)}
-          </table>
-        </div>
+        <h1>User List</h1>
+        { !this.state.editVisible ? null : (
+          <div>
+            <h2>Edit Page</h2>
+            <ul>
+              <li>First name:<input type="text" name="firstname"/></li>
+              <li>Last name:<input type="text" name="lastname"/></li>
+            </ul>
+          </div>
+        )}
+        <table className="myTable">
+          <tr className="header">
+            <th style={{width: '25%'}}>Firstname</th>
+            <th style={{width: '25%'}}>Lastname</th>
+            <th style={{width: '25%'}}>Email</th>
+            <th style={{width: '25%'}}>Modify</th>
+          </tr>
+          {this.state.users.sort(function (a, b) {
+            let nameA = a.lastname.toUpperCase(); // ignore upper and lowercase
+            let nameB = b.lastname.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            // names must be equal
+            return 0;
+          }).map(User =>
+            <tr key={User.id}>
+              <td>{User.firstname}</td>
+              <td className="lastname">{User.lastname}</td>
+              <td>{User.email}</td>
+              <td>
+                <button onClick={this.onClick}>Edit</button>
+                <button>Delete</button>
+              </td>
+            </tr>)}
+        </table>
       </div>
     );
   }
