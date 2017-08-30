@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Table.css';
+import {Well, Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-bootstrap';
+
 
 class Table extends Component {
   constructor() {
@@ -24,14 +26,43 @@ class Table extends Component {
   render() {
     return (
       <div className="Table">
-        <h1>User List</h1>
+        <h1>User List <Button onClick={this.onClick}>Add+</Button></h1>
         { !this.state.editVisible ? null : (
-          <div>
+          <div className="editPage">
             <h2>Edit Page</h2>
-            <ul>
-              <li>First name:<input type="text" name="firstname"/></li>
-              <li>Last name:<input type="text" name="lastname"/></li>
-            </ul>
+            <Form horizontal>
+              <FormGroup>
+                <Col componentClass={ControlLabel} sm={4}>
+                  First Name
+                </Col>
+                <Col sm={6}>
+                  <FormControl type="text" placeholder="First Name" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Col componentClass={ControlLabel} sm={4}>
+                  Last Name
+                </Col>
+                <Col sm={6}>
+                  <FormControl type="text" placeholder="Last Name" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Col componentClass={ControlLabel} sm={4}>
+                  Email Address
+                </Col>
+                <Col sm={6}>
+                  <FormControl type="text" placeholder="Email Address" />
+                </Col>
+              </FormGroup>
+              <FormGroup style={{textAlign:"left"}} >
+                <Col smOffset={4} sm={10}>
+                  <Button type="submit">
+                    Confirm
+                  </Button>
+                </Col>
+              </FormGroup>
+            </Form>
           </div>
         )}
         <table className="myTable">
@@ -58,8 +89,8 @@ class Table extends Component {
               <td className="lastname">{User.lastname}</td>
               <td>{User.email}</td>
               <td>
-                <button onClick={this.onClick}>Edit</button>
-                <button>Delete</button>
+                <Button onClick={this.onClick}>Edit</Button>
+                <Button>Delete</Button>
               </td>
             </tr>)}
         </table>
