@@ -18,8 +18,7 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body'
-    }),
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    })
   ],
   output: {
     filename: '[name].bundle.js',
