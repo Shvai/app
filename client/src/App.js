@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import './App.css';
+import React,{Component} from 'react';
 
+import './App.css';
 import TopNav from './components/TopNav/TopNav';
 import Table from './components/Table/Table';
 
