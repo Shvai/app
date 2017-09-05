@@ -29,7 +29,7 @@ class Table extends Component {
         <h1>User List <Button onClick={this.onClick}>Add+</Button></h1>
         { !this.state.editVisible ? null : (
           <div className="editPage">
-            <h2>Edit Page</h2>
+            <h2>Create New User</h2>
             <Form horizontal>
               <FormGroup>
                 <Col componentClass={ControlLabel} sm={4}>
@@ -53,6 +53,14 @@ class Table extends Component {
                 </Col>
                 <Col sm={6}>
                   <FormControl type="text" placeholder="Email Address" />
+                </Col>
+              </FormGroup>
+              <FormGroup>
+                <Col componentClass={ControlLabel} sm={4}>
+                  Password
+                </Col>
+                <Col sm={6}>
+                  <FormControl type="password" placeholder="Password" />
                 </Col>
               </FormGroup>
               <FormGroup style={{textAlign:"left"}} >
