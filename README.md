@@ -1,12 +1,2 @@
-This is a MERN stack application
-
-Frontend is written in React
-
-Backend is written in Node.js& Express.js
-
-MongoDB Atlas as a remote database
-
-Will have Webpack& Redux applied in near future
-
-Heroku Live Demo for this application
-https://mighty-fjord-55095.herokuapp.com/
+This is a half-finished boilerplate I build for myself, I try to minimise the dependencies to make it easier for me to study webpack. Probably add hot loading to dev config later.  
+Prod build seems not to work on heroku, works with no problems on dev.
