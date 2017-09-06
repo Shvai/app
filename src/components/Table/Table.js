@@ -8,7 +8,7 @@ class Table extends Component {
     super();
     this.state = {
       users: [],
-      editVisible: false
+      addVisible: false
     };
     this.onClick = this.onClick.bind(this)
   }
@@ -20,14 +20,14 @@ class Table extends Component {
   }
 
   onClick() {
-    this.setState({editVisible: !this.state.editVisible});
+    this.setState({addVisible: !this.state.addVisible});
   }
 
   render() {
     return (
       <div className="Table">
         <h1>User List <Button onClick={this.onClick}>Add+</Button></h1>
-        { !this.state.editVisible ? null : (
+        { !this.state.addVisible ? null : (
           <div className="editPage">
             <h2>Edit Page</h2>
             <Form horizontal>
