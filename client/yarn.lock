@@ -5008,9 +5008,9 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bootstrap@^0.31.2:
-  version "0.31.2"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.2.tgz#f59184676ecedfc4c572d29ffdd6f9126ea8fe6a"
+react-bootstrap@^0.31.3:
+  version "0.31.3"
+  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.3.tgz#db2b7d45b00b5dac1ab8b6de3dd97feb3091b849"
   dependencies:
     babel-runtime "^6.11.6"
     classnames "^2.2.5"
@@ -5024,7 +5024,7 @@ react-bootstrap@^0.31.2:
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
-react-dev-utils@^4.0.0:
+react-dev-utils@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.0.1.tgz#106ae3d29f811c169d459bb9215a5933b7e11fb6"
   dependencies:
@@ -5085,9 +5085,9 @@ react-prop-types@^0.4.0:
   dependencies:
     warning "^3.0.0"
 
-react-scripts@1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.12.tgz#a08a8214431c45db7424246d6f5510cc19b42927"
+react-scripts@^1.0.12:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.13.tgz#a51d775a4b195ab2653c562b735735c8f70cba0e"
   dependencies:
     autoprefixer "7.1.2"
     babel-core "6.25.0"
@@ -5116,7 +5116,7 @@ react-scripts@1.0.12:
     postcss-flexbugs-fixes "3.2.0"
     postcss-loader "2.0.6"
     promise "8.0.1"
-    react-dev-utils "^4.0.0"
+    react-dev-utils "^4.0.1"
     style-loader "0.18.2"
     sw-precache-webpack-plugin "0.11.4"
     url-loader "0.5.9"
