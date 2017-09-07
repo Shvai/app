@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/main.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -37,20 +37,14 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              "react",
-              "es2015"
-            ]
-          }
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.css$/,
+        include: [/(src)/, /(node_modules)/],
         use: [
-          'style-loader',
-          'css-loader'
+          'style-loader', 'css-loader'
         ]
       }
     ]
