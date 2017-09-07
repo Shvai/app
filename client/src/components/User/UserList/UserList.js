@@ -27,7 +27,7 @@ class UserList extends Component {
   render() {
     return (
       <div className="Table">
-        <h1>User List <Button onClick={this.onClick}>Add+</Button></h1>
+        <h1>User List <Button onClick={this.onClick}>Create</Button></h1>
         { !this.state.addVisible ? null : (
           <UserCreateWidget/>
         )}
