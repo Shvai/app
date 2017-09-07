@@ -13,6 +13,7 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.use('/users', UserController);
+app.use(express.static(path.join(__dirname+'../dist/static')));
 
 app.listen(5000, function () {
   console.log('Server listening on port 5000!\n');

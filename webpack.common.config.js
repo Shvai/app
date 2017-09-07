@@ -8,11 +8,14 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/static'),
     publicPath: '/'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    proxy: {
+      '/users/*': 'http://localhost:5000/'
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

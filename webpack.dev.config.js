@@ -1,15 +1,11 @@
 const merge = require('webpack-merge');
-const common = require('./webpack.common.config.js');
 const webpack = require('webpack');
-
+const common = require('./webpack.common.config.js');
 
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-      hot: true,
-      proxy: {
-        '/users/*': 'http://localhost:5000/'
-      }
+      hot: true
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
