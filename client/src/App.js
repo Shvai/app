@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 import './App.css';
 import TopNav from './components/TopNav/TopNav';
-import Table from './components/Table/Table';
+import UserList from './components/User/UserList/UserList';
 
 class App extends Component {
 
@@ -10,7 +10,7 @@ class App extends Component {
         return (
             <div className="App">
                 <TopNav/>
-                <Table/>
+                <UserList/>
             </div>
         );
     }
