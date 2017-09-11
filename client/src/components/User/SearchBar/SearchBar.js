@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
     return (
       <input
         type="text"
-        id="myInput"
+        className="searchBar"
         placeholder="Search for names.."
         value={this.props.filterText}
         onChange={this.handleFilterTextInputChange}

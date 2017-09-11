@@ -1,15 +1,14 @@
 import React,{Component} from 'react';
 
 import './App.css';
-import TopNav from './components/TopNav/TopNav';
-import UserList from './components/User/UserList/UserList';
+import SearchableUserList from './components/User/SearchabaleUserList/SearchableUserList';
 
 class App extends Component {
 
     render() {
         return (
             <div className="App">
-                <UserList/>
+                <SearchableUserList/>
             </div>
         );
     }

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 
-class User extends Component {
+class UserRow extends Component {
   render() {
     return (
-      <tr key={User.id}>
-        <td>{User.firstname}</td>
-        <td className="lastname">{User.lastname}</td>
-        <td>{User.email}</td>
+      <tr key={this.props.users.id}>
+        <td>{this.props.users.firstname}</td>
+        <td className="lastname">{this.props.users.lastname}</td>
+        <td>{this.props.users.email}</td>
         <td>
           <Button onClick={this.onClick}>Edit</Button>
           <Button>Delete</Button>
@@ -17,4 +17,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default UserRow;
