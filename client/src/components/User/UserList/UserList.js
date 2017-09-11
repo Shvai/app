@@ -21,7 +21,7 @@ class UserList extends Component {
       return 0;
     }).map(User => {
         if (User.firstname.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1
-          && User.lastname.indexOf(this.props.filterText.toUpperCase()) === -1) {
+          && User.lastname.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1) {
           return;
         }
         rows.push(<UserRow users={User}/>)
