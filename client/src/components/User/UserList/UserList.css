@@ -1,32 +1,24 @@
 .myTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
 }
 
 .myTable th, .myTable td {
-    text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
+    text-align: left;
+    padding: 12px;
 }
 
 .myTable tr {
-    /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd;
 }
 
 .myTable tr.header, .myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
 }
 
 .Table {
     margin-left: 20%;
     margin-right: 20%;
-}
-
-.editPage {
-    width:100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }

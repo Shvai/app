@@ -28,9 +28,9 @@ class UserList extends Component {
     return (
       <div className="Table">
         <h1>User List <Button onClick={this.onClick}>Create</Button></h1>
-        { !this.state.addVisible ? null : (
-          <UserCreateWidget/>
-        )}
+        {
+          !this.state.addVisible ? null : (<UserCreateWidget/>)
+        }
         <table className="myTable">
           <tr className="header">
             <th style={{width: '25%'}}>Firstname</th>

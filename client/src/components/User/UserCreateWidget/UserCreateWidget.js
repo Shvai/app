@@ -6,7 +6,7 @@ import {Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-boo
 class UserCreateWidget extends Component {
   render() {
     return(
-      <div className="editPage">
+      <div className="userCreateWidget">
         <h2>Create New User</h2>
         <Form horizontal>
           <FormGroup>
