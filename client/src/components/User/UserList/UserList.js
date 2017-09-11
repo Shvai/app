@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './UserList.css';
 import {Button} from 'react-bootstrap';
 import UserCreateWidget from "../UserCreateWidget/UserCreateWidget";
+import SearchBar from "../SearchBar/SearchBar";
 
 
 class UserList extends Component {
@@ -31,6 +32,7 @@ class UserList extends Component {
         {
           !this.state.addVisible ? null : (<UserCreateWidget/>)
         }
+        <SearchBar />
         <table className="myTable">
           <tr className="header">
             <th style={{width: '25%'}}>Firstname</th>
