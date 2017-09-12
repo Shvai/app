@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Button} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import UserCreateWidget from '../UserCreateWidget/UserCreateWidget';
 import UserEditWidget from '../UserEditWidget/UserEditWidget';
@@ -25,7 +26,6 @@ class SearchableUserList extends React.Component {
     fetch('/users')
       .then(res => res.json())
       .then(users => this.setState({users}));
-    fetch('/users/:id')
   }
 
   handleCreateUserClick() {
@@ -67,5 +67,17 @@ class SearchableUserList extends React.Component {
     );
   }
 }
+
+SearchableUserList.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  })).isRequired,
+  filterText: PropTypes.string.isRequired,
+  editVisible: PropTypes.bool.isRequired,
+  addVisible: PropTypes.bool.isRequired
+};
 
 export default SearchableUserList;

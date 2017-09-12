@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import './UserList.css';
+import PropTypes from 'prop-types';
 
+import './UserList.css';
 import UserRow from '../UserRow/UserRow';
 
 class UserList extends Component {
-  
+
   render() {
     let rows = [];
 
@@ -42,5 +43,16 @@ class UserList extends Component {
     );
   }
 }
+
+UserList.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  })).isRequired,
+  filterText: PropTypes.string.isRequired,
+  handleToggle: PropTypes.func.isRequired,
+};
 
 export default UserList;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 class UserRow extends Component {
   render() {
@@ -16,5 +17,15 @@ class UserRow extends Component {
     )
   }
 }
+
+UserRow.propTypes = {
+  users: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+  handleToggle: PropTypes.func.isRequired,
+};
 
 export default UserRow;
