@@ -1,4 +1,4 @@
-This is a MERN stack application
+This is a rookie MERN stack boilerplate
 
 Frontend is written in React
 
