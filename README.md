@@ -1,16 +1,12 @@
-#This is a rookie MERN stack boilerplate
+##This is a rookie MERN stack boilerplate
 
-Frontend is written in React
+I just uploaded a webpack branch but there's still a couple of issues to fix. Does not work properly on Heroku.
 
-Backend is written in Node.js& Express.js
+Buttons are only for frontend practice, will try to finish it after I can use redux properly.
 
-MongoDB Atlas as a remote database
+Can search for fistnames or lastnames in the search bar.
 
-Will have Redux applied in near future
 
-I just uploaded a webpack branch there's still a couple of issues to fix
+* [Heroku](https://mighty-fjord-55095.herokuapp.com/) - Live Demo for this application
+* [Webpack](https://github.com/Shvai/app/tree/webpack) - Webpack branch
 
-Buttons are not functional, better to do it after I finished learning redux.
-
-Heroku Live Demo for this application
-https://mighty-fjord-55095.herokuapp.com/
