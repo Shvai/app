@@ -1,5 +1,7 @@
 ## This is a rookie MERN stack boilerplate
 
+New to MERN stack and trying to have fun with it :)
+
 I just uploaded a webpack branch but there's still a couple of issues to fix. Does not work properly on Heroku.
 
 Buttons are only for frontend practice, will try to finish it after I can use redux properly.
