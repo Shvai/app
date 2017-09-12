@@ -24,7 +24,7 @@ class UserList extends Component {
           && User.lastname.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1) {
           return;
         }
-        rows.push(<UserRow users={User} handleToggle={this.props.handleToggle}/>)
+        rows.push(<UserRow key={User.id} users={User} handleToggle={() => this.props.handleToggle(User.id)}/>)
       }
     );
 

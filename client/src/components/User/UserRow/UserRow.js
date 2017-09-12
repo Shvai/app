@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class UserRow extends Component {
   render() {
     return (
-      <tr key={this.props.users.id}>
+      <tr>
         <td>{this.props.users.firstname}</td>
         <td className="lastname">{this.props.users.lastname}</td>
         <td>{this.props.users.email}</td>
