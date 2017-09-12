@@ -3,15 +3,14 @@ import './UserList.css';
 
 import UserRow from '../UserRow/UserRow';
 
-
 class UserList extends Component {
-
+  
   render() {
     let rows = [];
 
     this.props.users.sort((a, b) => {
-      let nameA = a.lastname.toUpperCase(); // ignore upper and lowercase
-      let nameB = b.lastname.toUpperCase(); // ignore upper and lowercase
+      let nameA = a.lastname.toUpperCase();
+      let nameB = b.lastname.toUpperCase();
       if (nameA < nameB) {
         return -1;
       }
@@ -24,7 +23,7 @@ class UserList extends Component {
           && User.lastname.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1) {
           return;
         }
-        rows.push(<UserRow users={User}/>)
+        rows.push(<UserRow users={User} handleToggle={this.props.handleToggle}/>)
       }
     );
 

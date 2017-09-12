@@ -9,7 +9,7 @@ class UserRow extends Component {
         <td className="lastname">{this.props.users.lastname}</td>
         <td>{this.props.users.email}</td>
         <td>
-          <Button onClick={this.onClick}>Edit</Button>
+          <Button onClick={this.props.handleToggle}>Edit</Button>
           <Button>Delete</Button>
         </td>
       </tr>

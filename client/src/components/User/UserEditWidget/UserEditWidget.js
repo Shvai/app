@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 
-import './UserCreateWidget.css';
+import './UserEditWidget.css';
 import {Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-bootstrap';
 
-class UserCreateWidget extends Component {
+class UserEditWidget extends Component {
   render() {
     return(
-      <div className="userCreateWidget">
-        <h2>Create New User</h2>
+      <div className="userEditWidget">
+        <h2>Edit Profile</h2>
         <Form horizontal>
           <FormGroup>
             <Col componentClass={ControlLabel} sm={4}>
               First Name
             </Col>
             <Col sm={4}>
-              <FormControl type="text" placeholder="First Name" />
+              <FormControl type="text" placeholder="First Name"/>
             </Col>
           </FormGroup>
           <FormGroup>
@@ -54,4 +54,4 @@ class UserCreateWidget extends Component {
   }
 }
 
-export default UserCreateWidget;
+export default UserEditWidget;
