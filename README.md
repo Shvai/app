@@ -1,4 +1,4 @@
-##This is a rookie MERN stack boilerplate
+## This is a rookie MERN stack boilerplate
 
 I just uploaded a webpack branch but there's still a couple of issues to fix. Does not work properly on Heroku.
 
