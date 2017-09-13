@@ -19,8 +19,7 @@ class SearchBar extends React.Component {
         className="searchBar"
         placeholder="Search for names.."
         value={this.props.filterText}
-        onChange={this.handleFilterTextInputChange}
-      />
+        onChange={this.handleFilterTextInputChange} />
     );
   }
 }
