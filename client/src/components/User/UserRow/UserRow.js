@@ -2,21 +2,19 @@ import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-class UserRow extends Component {
-  render() {
-    return (
-      <tr>
-        <td>{this.props.users.firstname}</td>
-        <td className="lastname">{this.props.users.lastname}</td>
-        <td>{this.props.users.email}</td>
-        <td>
-          <Button onClick={this.props.handleToggle}>Edit</Button>
-          <Button>Delete</Button>
-        </td>
-      </tr>
-    )
-  }
-}
+export const UserRow = (props) => {
+  return (
+    <tr>
+      <td>{props.users.firstname}</td>
+      <td className="lastname">{props.users.lastname}</td>
+      <td>{props.users.email}</td>
+      <td>
+        <Button onClick={props.handleToggle}>Edit</Button>
+        <Button>Delete</Button>
+      </td>
+    </tr>
+  )
+};
 
 UserRow.propTypes = {
   users: PropTypes.shape({
@@ -27,5 +25,3 @@ UserRow.propTypes = {
   }).isRequired,
   handleToggle: PropTypes.func.isRequired,
 };
-
-export default UserRow;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import './UserList.css';
-import UserRow from '../UserRow/UserRow';
+import {UserRow} from '../UserRow/UserRow';
 
 class UserList extends Component {
 

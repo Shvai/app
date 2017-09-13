@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import {Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import UserCreateWidget from '../UserCreateWidget/UserCreateWidget';
-import UserEditWidget from '../UserEditWidget/UserEditWidget';
+import {UserCreateWidget} from '../UserCreateWidget/UserCreateWidget';
+import {UserEditWidget} from '../UserEditWidget/UserEditWidget';
 import SearchBar from "../SearchBar/SearchBar";
 import UserList from "../UserList/UserList";
 
