@@ -2,10 +2,10 @@ import React,{Component} from 'react';
 import {Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import {UserCreateWidget} from '../UserCreateWidget/UserCreateWidget';
-import {UserEditWidget} from '../UserEditWidget/UserEditWidget';
-import SearchBar from "../SearchBar/SearchBar";
-import UserList from "../UserList/UserList";
+import {UserCreateWidget} from '../components/User/UserCreateWidget/UserCreateWidget';
+import {UserEditWidget} from '../components/User/UserEditWidget/UserEditWidget';
+import {SearchBar} from "../components/User/SearchBar/SearchBar";
+import {UserList} from "../components/User/UserList/UserList";
 
 class SearchableUserList extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class SearchableUserList extends React.Component {
     };
     this.handleCreateUserClick = this.handleCreateUserClick.bind(this);
     this.handleEditUserToggle = this.handleEditUserToggle.bind(this);
-    this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
+    this.handleFilterTextInputChange = this.handleFilterTextInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -42,11 +42,12 @@ class SearchableUserList extends React.Component {
     });
   }
 
-  handleFilterTextInput(filterText) {
+  handleFilterTextInputChange(e) {
     this.setState({
-      filterText: filterText
+      filterText: e.target.value
     });
   }
+
 
   render() {
     return (
@@ -56,7 +57,7 @@ class SearchableUserList extends React.Component {
         {!this.state.editVisible ? null : (<UserEditWidget/>)}
         <SearchBar
           filterText={this.state.filterText}
-          onFilterTextInput={this.handleFilterTextInput}
+          onChange={this.handleFilterTextInputChange}
         />
         <UserList
           users={this.state.users}
