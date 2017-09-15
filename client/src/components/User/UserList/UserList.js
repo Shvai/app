@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './UserList.css';
@@ -18,13 +18,12 @@ export const UserList = (props) => {
     }
     return 0;
   }).map(User => {
-      if (User.firstname.toUpperCase().indexOf(props.filterText.toUpperCase()) === -1
-        && User.lastname.toUpperCase().indexOf(props.filterText.toUpperCase()) === -1) {
-        return;
-      }
-      rows.push(<UserRow key={User.id} users={User} handleToggle={() => props.handleToggle(User.id)}/>)
+    if (User.firstname.toUpperCase().indexOf(props.filterText.toUpperCase()) === -1
+      && User.lastname.toUpperCase().indexOf(props.filterText.toUpperCase()) === -1) {
+      return;
     }
-  );
+    rows.push(<UserRow key={User.id} users={User} handleToggle={() => props.handleToggle(User.id)}/>);
+  });
 
   return (
     <div className="Table">
@@ -38,7 +37,7 @@ export const UserList = (props) => {
         {rows}
       </table>
     </div>
-  )
+  );
 };
 
 UserList.propTypes = {

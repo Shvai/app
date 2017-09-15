@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,7 @@ class SearchableUserList extends React.Component {
     this.state = {
       users: [],
       addVisible: false,
-      editVisible:false,
+      editVisible: false,
       editUserID: '',
       filterText: ''
     };
@@ -78,7 +78,10 @@ SearchableUserList.propTypes = {
   })).isRequired,
   filterText: PropTypes.string.isRequired,
   editVisible: PropTypes.bool.isRequired,
-  addVisible: PropTypes.bool.isRequired
+  addVisible: PropTypes.bool.isRequired,
+  handleCreateUserClick: PropTypes.func.isRequired,
+  handleEditUserToggle: PropTypes.func.isRequired,
+  handleFilterTextInputChange: PropTypes.func.isRequired
 };
 
 export default SearchableUserList;

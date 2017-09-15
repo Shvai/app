@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './TopNav.css';
 
 class TopNav extends Component {

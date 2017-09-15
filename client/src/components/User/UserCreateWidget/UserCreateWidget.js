@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import './UserCreateWidget.css';
 import {Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-bootstrap';
