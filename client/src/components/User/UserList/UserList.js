@@ -47,6 +47,5 @@ UserList.propTypes = {
     lastname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   })).isRequired,
-  filterText: PropTypes.string.isRequired,
-  handleToggle: PropTypes.func.isRequired,
+  filterText: PropTypes.string.isRequired
 };
