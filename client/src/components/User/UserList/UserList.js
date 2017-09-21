@@ -22,7 +22,11 @@ export const UserList = (props) => {
       && User.lastname.toUpperCase().indexOf(props.filterText.toUpperCase()) === -1) {
       return;
     }
-    rows.push(<UserRow key={User.id} users={User} handleToggle={() => props.handleToggle(User.id)}/>);
+    rows.push(<UserRow
+      key={User.id}
+      users={User}
+      handleToggle={props.handleToggle}
+      onDelete={() => props.onDelete(User.id)}/>);
   });
 
   return (

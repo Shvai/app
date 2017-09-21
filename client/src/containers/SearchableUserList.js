@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
@@ -6,7 +7,7 @@ import {UserCreateWidget} from '../components/User/UserCreateWidget/UserCreateWi
 import {UserEditWidget} from '../components/User/UserEditWidget/UserEditWidget';
 import {SearchBar} from "../components/User/SearchBar/SearchBar";
 import {UserList} from "../components/User/UserList/UserList";
-import {usersFetchData} from '../actions/UserActions';
+import {deleteUserRequest, usersFetchData} from '../actions/UserActions';
 
 class SearchableUserList extends React.Component {
   constructor() {
@@ -22,20 +23,7 @@ class SearchableUserList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchData('/users');
-    /*
-    fetch('/users')
-      .then((res) => {
-        if (!res.ok) {
-          throw Error(res.statusText);
-        }
-        this.setState({ isLoading: false });
-        return res;
-      })
-      .then(res => res.json())
-      .then(users => this.setState({users}))
-      .catch(() => this.setState({ hasError: true }));
-      */
+    this.props.dispatch(usersFetchData('/users'));
   }
 
   handleCreateUserClick() {
@@ -44,6 +32,10 @@ class SearchableUserList extends React.Component {
       editVisible: false
     });
   }
+
+  handleDeleteUser(user)  {
+    this.props.dispatch(deleteUserRequest(user));
+  };
 
   handleEditUserToggle() {
     this.setState({
@@ -79,6 +71,7 @@ class SearchableUserList extends React.Component {
           users={this.props.users}
           filterText={this.state.filterText}
           handleToggle={this.handleEditUserToggle}
+          onDelete={this.handleDeleteUser}
         />
       </div>
     );
@@ -93,10 +86,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (url) => dispatch(usersFetchData(url))
-  };
+SearchableUserList.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  })).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchableUserList);
+export default connect(mapStateToProps)(SearchableUserList);
