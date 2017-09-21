@@ -1,27 +1,49 @@
-export const ADD_USER = 'ADD_USER';
-export const GET_USERS ='GET_USERS';
-export const GET_USER ='GET_USER';
+export const USERS_FETCH_DATA_SUCCESS ='USERS_FETCH_DATA_SUCCESS';
+export const USERS_HAS_ERROR ='USERS_HAS_ERROR';
+export const USERS_IS_LOADING ='USERS_IS_LOADING';
 
-export function addUser(Users) {
+export function usersHasError(bool) {
   return {
-    type: ADD_USER,
-    Users
+    type: 'USERS_HAS_ERROR',
+    hasError: bool
+  };
+}
+export function usersIsLoading(bool) {
+  return {
+    type: 'USERS_IS_LOADING',
+    isLoading: bool
+  };
+}
+
+export function usersFetchDataSuccess(users) {
+  return {
+    type: USERS_FETCH_DATA_SUCCESS,
+    users
   }
 }
 
-export function getUsers(Users) {
-  return {
-    type: GET_USERS,
-    Users
-  }
+export function errorAfterFiveSeconds() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(usersHasError(true));
+    }, 5000);
+  };
 }
 
-export function getUser(Users, json) {
-  return {
-    type: GET_USER,
-    Users,
-    posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
-  }
+export function usersFetchData(url) {
+  return (dispatch) => {
+    dispatch(usersIsLoading(true));
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        dispatch(usersIsLoading(false));
+        return res;
+      })
+      .then((res) => res.json())
+      .then((users) => dispatch(usersFetchDataSuccess(users)))
+      .catch(() => dispatch(usersHasError(true)));
+  };
 }
 

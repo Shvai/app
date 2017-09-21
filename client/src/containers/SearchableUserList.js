@@ -1,20 +1,19 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import {UserCreateWidget} from '../components/User/UserCreateWidget/UserCreateWidget';
 import {UserEditWidget} from '../components/User/UserEditWidget/UserEditWidget';
 import {SearchBar} from "../components/User/SearchBar/SearchBar";
 import {UserList} from "../components/User/UserList/UserList";
+import {usersFetchData} from '../actions/UserActions';
 
 class SearchableUserList extends React.Component {
   constructor() {
     super();
     this.state = {
-      users: [],
       addVisible: false,
       editVisible: false,
-      editUserID: '',
       filterText: ''
     };
     this.handleCreateUserClick = this.handleCreateUserClick.bind(this);
@@ -23,9 +22,20 @@ class SearchableUserList extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchData('/users');
+    /*
     fetch('/users')
+      .then((res) => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        this.setState({ isLoading: false });
+        return res;
+      })
       .then(res => res.json())
-      .then(users => this.setState({users}));
+      .then(users => this.setState({users}))
+      .catch(() => this.setState({ hasError: true }));
+      */
   }
 
   handleCreateUserClick() {
@@ -48,8 +58,14 @@ class SearchableUserList extends React.Component {
     });
   }
 
-
   render() {
+    if (this.props.hasError) {
+      return <h2>Sorry! There was an error loading users</h2>;
+    }
+    if (this.props.isLoading) {
+      return <h2>Loading…</h2>;
+    }
+
     return (
       <div>
         <h1>User List <Button onClick={this.handleCreateUserClick}>Create</Button></h1>
@@ -60,7 +76,7 @@ class SearchableUserList extends React.Component {
           onChange={this.handleFilterTextInputChange}
         />
         <UserList
-          users={this.state.users}
+          users={this.props.users}
           filterText={this.state.filterText}
           handleToggle={this.handleEditUserToggle}
         />
@@ -69,19 +85,18 @@ class SearchableUserList extends React.Component {
   }
 }
 
-SearchableUserList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    firstname: PropTypes.string.isRequired,
-    lastname: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  })).isRequired,
-  filterText: PropTypes.string.isRequired,
-  editVisible: PropTypes.bool.isRequired,
-  addVisible: PropTypes.bool.isRequired,
-  handleCreateUserClick: PropTypes.func.isRequired,
-  handleEditUserToggle: PropTypes.func.isRequired,
-  handleFilterTextInputChange: PropTypes.func.isRequired
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    hasError: state.usersHasError,
+    isLoading: state.usersIsLoading
+  };
 };
 
-export default SearchableUserList;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: (url) => dispatch(usersFetchData(url))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchableUserList);

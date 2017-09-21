@@ -1,50 +1,24 @@
-import {GET_USER,GET_USERS} from "../actions/UserActions";
-
-function users(
-  state = {
-    users: [],
-    addVisible: false,
-    editVisible: false,
-    filterText: ''
-  },
-  action) {
+export function usersHasError(state = false, action) {
   switch (action.type) {
-    case GET_USER:
-    case GET_USERS:
-      return Object.assign({}, state, {
-        addVisible: false,
-        editVisible: false,
-        filterText: '',
-        users: action.posts,
-        lastUpdated: action.receivedAt
-        }
-      );
+    case 'USERS_HAS_ERROR':
+      return action.hasError;
     default:
-      return state
+      return state;
   }
 }
-
-function seletedUser(state = 'users', action) {
+export function usersIsLoading(state = false, action) {
   switch (action.type) {
-    case GET_USER:
-      return action.Users;
+    case 'USERS_IS_LOADING':
+      return action.isLoading;
     default:
-      return state
+      return state;
   }
 }
-
-function getUsers(state = {}, action) {
+export function users(state = [], action) {
   switch (action.type) {
-    case GET_USER:
-    case GET_USERS:
-      return Object.assign({}, state, {
-        [action.Users]: users(state[action.Users], action)
-      });
+    case 'USERS_FETCH_DATA_SUCCESS':
+      return action.users;
     default:
-      return state
+      return state;
   }
 }
-
-
-
-export default UserReducer;
