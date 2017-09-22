@@ -16,6 +16,9 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use('/users', UserController);
 app.use(express.static(static_path, {maxage: 31557600}));
+//app.get('*', function(req, res) {
+  //res.sendFile(path.join(__dirname, './../dist/index.html'));
+//});
 
 app.listen(5000, function () {
   console.log('Server listening on port 5000!\n');
