@@ -1,19 +1,21 @@
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const path = require('path');
 
 const app = express();
-const config = require('../webpack.dev.config.js');
+const config = require('../webpack.common.config.js');
 const compiler = webpack(config);
 const UserController = require('./controllers/user.controller');
 const db = require('./db');
+const static_path = path.join(__dirname, './../dist');
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 
 app.use('/users', UserController);
-app.use(express.static(path.join(__dirname+'../dist/static')));
+app.use(express.static(static_path, {maxage: 31557600}));
 
 app.listen(5000, function () {
   console.log('Server listening on port 5000!\n');

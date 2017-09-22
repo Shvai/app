@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist/static'),
+    path: path.resolve(__dirname, './dist'),
     publicPath: '/'
   },
   devServer: {
@@ -21,7 +21,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      inject: 'body'
+      //inject: 'body'
     }),
     new CleanWebpackPlugin(['dist'])
   ],
@@ -42,9 +42,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: [/(src)/, /(node_modules)/],
         use: [
-          'style-loader', 'css-loader'
+          'style-loader',
+          'css-loader'
         ]
       }
     ]
