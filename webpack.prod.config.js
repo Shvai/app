@@ -2,13 +2,14 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.config.js');
+
 module.exports = {
   devtool: 'source-map',
   entry: {
     index: './src/main.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'bundle.js',
     path: __dirname + '/dist',
     publicPath: '/'
   },
@@ -36,7 +37,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
