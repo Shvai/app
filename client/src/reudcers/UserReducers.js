@@ -1,22 +1,24 @@
-import {ADD_USER} from "../actions/UserActions";
-
-const UserReducer = (state = initialstate, action) => {
+export function usersHasError(state = false, action) {
   switch (action.type) {
-    case ADD_USER:
-      return Object.assign({}, state, {
-        users: [
-          ...state.users,
-          {
-            firstaname: action.text,
-            lastname: action.text,
-            email: action.text,
-            password: action.text
-          }
-        ]
-      });
+    case 'USERS_HAS_ERROR':
+      return action.hasError;
     default:
-      return state
+      return state;
   }
-};
-
-export default UserReducer;
+}
+export function usersIsLoading(state = false, action) {
+  switch (action.type) {
+    case 'USERS_IS_LOADING':
+      return action.isLoading;
+    default:
+      return state;
+  }
+}
+export function users(state = [], action) {
+  switch (action.type) {
+    case 'USERS_FETCH_DATA_SUCCESS':
+      return action.users;
+    default:
+      return state;
+  }
+}

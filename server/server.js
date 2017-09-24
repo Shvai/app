@@ -12,9 +12,10 @@ app.use('/users', UserController);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
+/*
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'../client/build/index.html'));
-});
+});*/
 
 /*
 app.use(function (req, res) {
@@ -22,7 +23,7 @@ app.use(function (req, res) {
 });
 */
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 const server = app.listen(port, function () {
   console.log('Express server listening on port ' + port);
 });

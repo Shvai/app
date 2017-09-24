@@ -1,17 +1,23 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
+import {Provider} from 'react-redux';
 
-import './App.css';
+import configureStore from '../store/configureStore';
 import SearchableUserList from './SearchableUserList';
+import './App.css';
+
+const store = configureStore();
 
 class App extends Component {
 
-    render() {
-        return (
-            <div className="App">
-                <SearchableUserList/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <SearchableUserList />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;

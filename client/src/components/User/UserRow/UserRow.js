@@ -10,7 +10,7 @@ export const UserRow = (props) => {
       <td>{props.users.email}</td>
       <td>
         <Button onClick={props.handleToggle}>Edit</Button>
-        <Button>Delete</Button>
+        <Button onClick={props.onDelete}>Delete</Button>
       </td>
     </tr>
   )
