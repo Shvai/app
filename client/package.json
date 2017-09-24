@@ -4,12 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-<<<<<<< HEAD
     "eslint": "^4.7.1",
-=======
-    "eslint": "^4.7.0",
->>>>>>> 0660c9539997e879f3aa7b66a876f94773b2e5ee
-    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
