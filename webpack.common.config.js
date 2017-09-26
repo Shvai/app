@@ -21,9 +21,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      //inject: 'body'
+      inject: 'body'
     }),
-    new CleanWebpackPlugin(['dist'])
+    //new CleanWebpackPlugin(['dist'])
   ],
   module: {
     loaders: [
