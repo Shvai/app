@@ -6,4 +6,4 @@ mongoose.connect(
   'ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
 );
 
-module.exports = mongoose
+module.exports = mongoose;
