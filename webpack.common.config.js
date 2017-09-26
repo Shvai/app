@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -8,8 +7,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: __dirname + '/dist',
-    publicPath: '/dist/'
+    path: path.resolve(__dirname, 'dist')
   },
   devServer: {
     contentBase: './dist',
