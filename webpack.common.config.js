@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: __dirname + '/dist',
-    publicPath: '/'
+    publicPath: '/dist/'
   },
   devServer: {
     contentBase: './dist',
@@ -23,10 +23,15 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    //new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin(['dist'])
   ],
   module: {
     loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
@@ -34,17 +39,16 @@ module.exports = {
         ]
       },
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
-      {
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
         ]
       }
     ]
