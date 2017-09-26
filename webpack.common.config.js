@@ -16,7 +16,7 @@ module.exports = {
       filename: 'index.html',
       inject: 'body'
     }),
-    new CleanWebpackPlugin(['dist'])
+    //new CleanWebpackPlugin(['dist'])
   ],
   module: {
     loaders: [
