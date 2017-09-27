@@ -7,4 +7,4 @@ mongoose.connect(
   { useMongoClient: true }
 );
 
-module.exports = mongoose
+module.exports = mongoose;
